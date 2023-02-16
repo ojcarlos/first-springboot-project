@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Question1 implements Serializable {
+public class Question3 implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
@@ -30,12 +31,10 @@ public class Question1 implements Serializable {
     @Column(nullable = true, columnDefinition = "TEXT", length = 10000)
 
     private String answer;
-
-    public Question1() {
-
+    public Question3() {
     }
 
-    public Question1(Long id, String ask, String alternativeA, String alternativeB, String alternativeC, String alternativeD, String answer) {
+    public Question3(Long id, String ask, String alternativeA, String alternativeB, String alternativeC, String alternativeD, String answer) {
         this.id = id;
         this.ask = ask;
         this.alternativeA = alternativeA;
@@ -43,6 +42,22 @@ public class Question1 implements Serializable {
         this.alternativeC = alternativeC;
         this.alternativeD = alternativeD;
         this.answer = answer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAsk() {
+        return ask;
+    }
+
+    public void setAsk(String ask) {
+        this.ask = ask;
     }
 
     public String getAlternativeA() {
@@ -77,24 +92,6 @@ public class Question1 implements Serializable {
         this.alternativeD = alternativeD;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getAsk() {
-        return ask;
-    }
-
-    public void setAsk(String ask) {
-        this.ask = ask;
-    }
-
-
-
     public String getAnswer() {
         return answer;
     }
@@ -106,8 +103,8 @@ public class Question1 implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Question1 question1)) return false;
-        return id == question1.id;
+        if (!(o instanceof Question3 question3)) return false;
+        return id.equals(question3.id);
     }
 
     @Override
