@@ -62,6 +62,17 @@ public class TestConfig implements CommandLineRunner {
         Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 
         productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+
+        p1.getCategories().add(cat2);
+        p2.getCategories().add(cat1);
+        p2.getCategories().add(cat3);
+        p3.getCategories().add(cat3);
+        p4.getCategories().add(cat3);
+        p5.getCategories().add(cat2);
+
+        productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+
+
         Question1 q11 = new Question1(null,
                 "Qual risco está relacionado à possibilidade de ocorrência de danos, seja dentro de um\n" +
                         "período pequeno ou grande de tempo com os prejuízos sendo causados por fatores de\n" +
